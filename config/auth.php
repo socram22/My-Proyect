@@ -34,7 +34,6 @@ return [
     | Supported: "session", "token"
     |
     */
-    
 
     'guards' => [
         'web' => [
@@ -66,19 +65,16 @@ return [
     */
 
     'providers' => [
-    'users' => [
-        'driver' => 'ldap',
-        'adldap' => [
-            'account_suffix'=>  '@upr.edu.cu',
-            'domain_controllers'=>  array(
-                'ad.upr.edu.cu'
-            ), // Load balancing domain controllers
-            'base_dn'   =>  'DC=upr,DC=edu,DC=cu',
-            'admin_username' => 'roberto.valdes', // This is required for session persistance in the application
-            'admin_password' => 'RVD.informatica*FCT',
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,
         ],
+
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
     ],
-],
 
     /*
     |--------------------------------------------------------------------------
