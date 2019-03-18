@@ -11,10 +11,22 @@
 |
 */
 Route::get('/', function () {
-    return view('layouts.base');
+    return view('welcome');
 });
 Route::get('home', 'HomeController@index');
 
 Route::auth();
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
