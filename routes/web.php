@@ -14,9 +14,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('home', 'HomeController@index');
-
 Route::auth();
 
+Route::get('/empresa', 'EmpresaController@mostrar_empresa')->name('Empresa');
+
+
+Route::get('/posicion', 'PosicionController@index')->name('posicion');
+Route::post('/addPos', 'CoopController@addPosicion');
+Route::post('/editPos', 'CoopController@editPosicion');
+Route::post('/deletePos', 'CoopController@deletePosicion');
 
 
 Auth::routes();
